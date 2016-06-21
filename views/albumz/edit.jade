@@ -1,0 +1,31 @@
+extends ../layout
+
+block content
+  form(method='POST' action='/albumz/#{album._id}?_method=PUT')
+    fieldset
+      legend(id='legenwaitforitdary') Edit album
+      label Artist
+      input(type='text' name='artist' id='artist' value='#{album.artist}')
+      br
+      label Album
+      input(type='text' name='album' value='#{album.album}')
+      br
+      select(name='genre')
+        option(value='Jazz' selected=album.genre=='Jazz') Jazz
+        option(value='Metal' selected=album.genre=='Metal') Metal
+      br
+      label 1
+      input(type='radio' name='rating' value='1' checked=album.rating==1)
+      input(type='radio' name='rating' value='2' checked=album.rating==2)
+      input(type='radio' name='rating' value='3' checked=album.rating==3)
+      input(type='radio' name='rating' value='4' checked=album.rating==4)
+      input(type='radio' name='rating' value='5' checked=album.rating==5)
+      label 5
+      br
+      input(type='checkbox' name='explicit' checked=album.isExplicit=='on')
+      label Contains Explicit Lyrics
+      br
+      input(type='submit' value='Confirm Edit' id='button')
+      a(href='/albumz' id='cancelEdit') cancel
+  form(method="POST" action='/albumz/#{album._id}?_method=DELETE')
+    input(type='submit' value='Delete' id='delButton')

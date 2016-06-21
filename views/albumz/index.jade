@@ -1,0 +1,18 @@
+extends ../layout
+
+block content
+  h1 Albumz
+  a(href='/albumz/new')
+    p New Album
+  table
+    thead
+      tr
+        td Genre
+        td Artist
+        td Album
+    tbody
+      for album in albums
+        tr(class='albumsList')
+          td= album.genre
+          td(id="artist")= album.artist
+          td: a(href='/albumz/' + album._id + "/edit" id="editLink")= album.album

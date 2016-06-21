@@ -1,0 +1,27 @@
+extends ../layout
+
+block content
+  form(method='POST' action='/albumz')
+    fieldset
+      legend(id='legenwaitforitdary') Create album
+      input(type='text' name='artist' placeholder='artist')
+      br
+      input(type='text' name='album' placeholder='album')
+      br
+      select(name='genre')
+        option(value='Jazz') Jazz
+        option(value='Metal') Metal
+      br
+      label 1
+      input(type='radio' name='rating' value='1')
+      input(type='radio' name='rating' value='2')
+      input(type='radio' name='rating' value='3')
+      input(type='radio' name='rating' value='4')
+      input(type='radio' name='rating' value='5')
+      label 5
+      br
+      input(type='checkbox' name='explicit')
+      label Contains Explicit Lyrics
+      br
+      input(type='submit' value='Create Album')
+      a(href='/albumz') cancel
