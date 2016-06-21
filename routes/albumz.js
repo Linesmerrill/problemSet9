@@ -30,18 +30,20 @@ router.post('/', function(req, res, next) {
 });
 
 router.get('/new', function(req, res) {
+  console.log('heyhey');
   res.render('albumz/new');
 });
 
-router.put('/:id', function(req, res){
+router.put('/create', function(req, res){
   db.get('albums').update({_id: req.params.id}, req.body, function(err, data){
     res.redirect('/albumz')
   } )
 
 });
 
-router.post('/', function(req, res) {
+router.post('/:album', function(req, res) {
   console.log(req.body)
+  console.log("HEYHEYHEY")
   db.get('albums').insert({genre: req.body.genre, artist: req.body.artist, album: req.body.album, rating: req.body.rating, isExplicit: req.body.explicit}, function(err, data) {
     res.redirect('/albumz');
   });
