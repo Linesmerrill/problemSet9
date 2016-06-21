@@ -4,6 +4,14 @@ block content
   h1 Albumz
   a(href='/albumz/new')
     p New Album
+  form(method='POST' action='/albumz')
+    input(type='text' placeholder='Album' name='album')
+    input(type='text' placeholder='Artist' name='artist')
+    input(type='text' placeholder='Genre' name='genre')
+    br
+    input(type='submit' value='Search' id='searchBtn')
+  form(method='GET' action='/albumz')
+    input(type='submit' value='Reset' id='resetBtn')
   table
     thead
       tr
