@@ -34,7 +34,7 @@ router.get('/new', function(req, res) {
   res.render('albumz/new');
 });
 
-router.put('/create', function(req, res){
+router.put('/:id', function(req, res){
   db.get('albums').update({_id: req.params.id}, req.body, function(err, data){
     res.redirect('/albumz')
   } )
